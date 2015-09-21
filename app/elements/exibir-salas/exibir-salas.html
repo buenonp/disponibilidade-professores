@@ -1,0 +1,113 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<dom-module id="exibir-salas">
+  
+  <style>
+    #card-entidade {
+        height: 60px;
+        border: 1px solid #bebebe;
+        padding: 16px;
+        margin: 16px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #555;
+    }
+
+    #icone {
+        display: inline-block;
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        background: #ddd;
+        line-height: 64px;
+        font-size: 30px;
+        color: #666;
+        text-align: center;
+        float:left;
+        position: relative;
+    }
+            #logotipo {
+                margin-top: 2px;
+                width: 64px;
+            }
+                    #logotipo img {
+                        width: 44px;
+                    }
+
+
+    #titulo {
+        margin: 10px;
+        font-size: 22px;
+        padding: 8px 0 16px;
+        color: #888;
+        float:left;
+        position: relative;
+    }
+
+    #descricao {
+        margin: 22px;
+        font-size: 16px;
+        padding-bottom: 8px;
+    }
+  </style>
+  
+  <template>
+
+    <h1>Salas</h1>
+
+    <ul>
+      <template is="dom-repeat" items="{{items}}">
+
+        <div id="card-entidade">
+            <div id="icone">
+                <div id="logotipo">
+                    <span id="id">{{item.id}}</span>
+                </div><!-- endLogotipo-->
+            </div><!-- endIcone-->
+
+            <div id="titulo">
+                <span>Nº </span><span>{{item.numero}}</span>
+            </div><!-- endTitulo -->
+
+            <div id="descricao">
+                <span>Nome: </span><span>{{item.nome}}</span>
+            </div><!-- endTitulo -->
+
+        </div><!-- endCardEntidade -->
+
+      </template>
+    </ul>
+    <paper-fab id="fabAddSala" onclick="addSala()" icon="add"></paper-fab>
+    <script>
+        function addSala() {
+            page('/form-sala');
+        }
+    </script>
+  </template>
+
+  <script>
+    Polymer({
+      is: "exibir-salas",
+      ready: function() {
+          this.items = [
+            {id:1, numero:"019", nome:"Lab. SI"},
+            {id:2, numero:"020", nome:"LTI"},
+            {id:3, numero:"021", nome:"-"},
+            {id:4, numero:"022", nome:"-"},
+            {id:5, numero:"023", nome:"-"}
+          ];
+
+          //this.items = getAllEntidades();
+        }
+    });
+  </script>
+
+</dom-module>

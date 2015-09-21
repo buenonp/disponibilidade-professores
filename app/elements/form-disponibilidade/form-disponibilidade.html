@@ -1,0 +1,165 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<dom-module id="form-disponibilidade">
+
+  <style>
+
+    table {
+      width: 100%;
+      border-spacing: 5px;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 15px;
+    }
+
+  </style>
+
+  <template>
+
+    <h1>Adicionar Disponibilidade</h1>
+ 
+  	<paper-dropdown-menu label="Escolha o Professor...">
+      <paper-menu class="dropdown-content">
+        <paper-item>Bruno de Brito</paper-item>
+        <paper-item>Adriano Santos</paper-item>
+        <paper-item>Hamurábi Medeiros</paper-item>
+        <paper-item>Jemerson Damásio</paper-item>
+        <paper-item>Isabel Nunes</paper-item>
+      </paper-menu>
+    </paper-dropdown-menu>
+
+    <table>
+      <tr>
+        <th>Horário</th>
+        <th>Segunda</th>
+        <th>Terça</th> 
+        <th>Quarta</th>
+        <th>Quinta</th>
+        <th>Sexta</th>
+      </tr>
+      <tr>
+        <td>08h00 às 09h40</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+      <tr>
+        <td>09h50 às 11h30</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+      <tr>
+        <td>14h00 às 15h40</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+      <tr>
+        <td>15h50 às 17h30</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+      <tr>
+        <td>18h30 às 20h10</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+      <tr>
+        <td>20h20 às 22h00</td>
+        <td><paper-checkbox></paper-checkbox></td> 
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+        <td><paper-checkbox></paper-checkbox></td>
+      </tr>
+    </table>
+
+  	<paper-fab id="fabDone" icon="done" onclick=""></paper-fab>
+    <script>
+        function add2() {
+            document.querySelector("form-entidade").insert();
+        }
+    </script>
+    <script>
+        function edit2() {
+            document.querySelector("form-entidade").edit();
+        }
+    </script>
+  </template>
+
+  <script>
+    Polymer({
+      is: "form-disponibilidade",
+      editar: function(id) {
+          page('/form-entidade');
+          getEntidadeById(id);
+          document.getElementById("fabDone").onclick = 
+          function onclick(event) {
+            edit2()
+          };
+
+      },
+      adicionar: function() {
+          page('/form-entidade');
+          document.getElementById("fabDone").onclick = 
+          function onclick(event) {
+            add2()
+          };
+
+      },
+      insert: function() {
+		
+    		var entidade = {
+    			id: document.getElementById("inputId").value,
+    			//title: document.getElementById("inputTitle").value,
+          title: 'Título da entidade' + document.getElementById("inputId").value,
+          //description: document.getElementById("inputDescription").value
+          description: 'Descrição da entidade' + document.getElementById("inputId").value
+    		};
+
+        addEntidade(entidade.id, entidade.title, entidade.description);
+
+      },
+      edit: function() {
+
+        var entidade = {
+          id: document.getElementById("inputId").value,
+          title: document.getElementById("inputTitle").value,
+          description: document.getElementById("inputDescription").value
+        };
+
+        editEntidade(entidade.id, entidade.title, entidade.description);
+
+      }
+    });
+  </script>
+
+</dom-module>
