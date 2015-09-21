@@ -85,24 +85,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </template>
     </ul>
-    <paper-fab id="fabAddSala" onclick="addSala()" icon="add"></paper-fab>
-    <script>
-        function addSala() {
-            page('/form-sala');
-        }
-    </script>
+    <paper-fab id="fabAddSala" onclick="page('/form-sala')" icon="add"></paper-fab>
   </template>
 
   <script>
     Polymer({
-      is: "exibir-salas",
+      is: 'exibir-salas',
       ready: function() {
           this.items = [
-            {id:1, numero:"019", nome:"Lab. SI"},
-            {id:2, numero:"020", nome:"LTI"},
-            {id:3, numero:"021", nome:"-"},
-            {id:4, numero:"022", nome:"-"},
-            {id:5, numero:"023", nome:"-"}
+            {id:1, numero:'019', nome:'Lab. SI'},
+            {id:2, numero:'020', nome:'LTI'},
+            {id:3, numero:'021', nome:'-'},
+            {id:4, numero:'022', nome:'-'},
+            {id:5, numero:'023', nome:'-'}
           ];
 
           //this.items = getAllEntidades();

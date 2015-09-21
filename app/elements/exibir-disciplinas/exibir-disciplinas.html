@@ -84,24 +84,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </template>
     </ul>
-    <paper-fab id="fabAddDisciplina" onclick="addDisciplina()" icon="add"></paper-fab>
-    <script>
-        function addDisciplina() {
-            page('/form-disciplina');
-        }
-    </script>
+    <paper-fab id="fabAddDisciplina" onclick="page('/form-disciplina')" icon="add"></paper-fab>
   </template>
 
   <script>
     Polymer({
-      is: "exibir-disciplinas",
+      is: 'exibir-disciplinas',
       ready: function() {
           this.items = [
-            {id:1, nome:"Lab. de Sistemas de Informação", curso:"Sistemas de Informação"},
-            {id:2, nome:"Anatomia", curso:"Medicina"},
-            {id:3, nome:"Alimentação Saudável", curso:"Nutrição"},
-            {id:4, nome:"Direito Penal", curso:"Direito"},
-            {id:5, nome:"Planejamento Estratégico", curso:"Administração"}
+            {id:1, nome:'Lab. de Sistemas de Informação', curso:'Sistemas de Informação'},
+            {id:2, nome:'Anatomia', curso:'Medicina'},
+            {id:3, nome:'Alimentação Saudável', curso:'Nutrição'},
+            {id:4, nome:'Direito Penal', curso:'Direito'},
+            {id:5, nome:'Planejamento Estratégico', curso:'Administração'}
           ];
 
           //this.items = getAllEntidades();

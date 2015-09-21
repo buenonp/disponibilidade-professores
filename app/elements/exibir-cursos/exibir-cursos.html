@@ -79,24 +79,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </template>
     </ul>
-    <paper-fab id="fabAddCurso" onclick="addCurso()" icon="add"></paper-fab>
-    <script>
-        function addCurso() {
-            page('/form-curso');
-        }
-    </script>
+    <paper-fab id="fabAddCurso" onclick="page('/form-curso')" icon="add"></paper-fab>
   </template>
 
   <script>
     Polymer({
-      is: "exibir-cursos",
+      is: 'exibir-cursos',
       ready: function() {
           this.items = [
-            {id:1, nome:"Medicina"},
-            {id:2, nome:"Direito"},
-            {id:3, nome:"Sistemas de Informação"},
-            {id:4, nome:"Administração"},
-            {id:5, nome:"Nutrição"}
+            {id:1, nome:'Medicina'},
+            {id:2, nome:'Direito'},
+            {id:3, nome:'Sistemas de Informação'},
+            {id:4, nome:'Administração'},
+            {id:5, nome:'Nutrição'}
           ];
 
           //this.items = getAllEntidades();

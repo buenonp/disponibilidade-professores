@@ -17,62 +17,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   	<paper-input id="inputNome" label="Nome"></paper-input>
 
   	<paper-fab id="fabDone" icon="done" onclick=""></paper-fab>
-    <script>
-        function add2() {
-            document.querySelector("form-entidade").insert();
-        }
-    </script>
-    <script>
-        function edit2() {
-            document.querySelector("form-entidade").edit();
-        }
-    </script>
+
   </template>
 
   <script>
     Polymer({
-      is: "form-professor",
-      editar: function(id) {
-          page('/form-entidade');
-          getEntidadeById(id);
-          document.getElementById("fabDone").onclick = 
-          function onclick(event) {
-            edit2()
-          };
-
-      },
-      adicionar: function() {
-          page('/form-entidade');
-          document.getElementById("fabDone").onclick = 
-          function onclick(event) {
-            add2()
-          };
-
-      },
-      insert: function() {
-		
-    		var entidade = {
-    			id: document.getElementById("inputId").value,
-    			//title: document.getElementById("inputTitle").value,
-          title: 'Título da entidade' + document.getElementById("inputId").value,
-          //description: document.getElementById("inputDescription").value
-          description: 'Descrição da entidade' + document.getElementById("inputId").value
-    		};
-
-        addEntidade(entidade.id, entidade.title, entidade.description);
-
-      },
-      edit: function() {
-
-        var entidade = {
-          id: document.getElementById("inputId").value,
-          title: document.getElementById("inputTitle").value,
-          description: document.getElementById("inputDescription").value
-        };
-
-        editEntidade(entidade.id, entidade.title, entidade.description);
-
-      }
+      is: 'form-professor'
     });
   </script>
 

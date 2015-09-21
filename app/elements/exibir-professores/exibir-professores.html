@@ -79,24 +79,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       </template>
     </ul>
-    <paper-fab id="fabAddProfessor" onclick="addProfessor()" icon="add"></paper-fab>
-    <script>
-        function addProfessor() {
-            page('/form-professor');
-        }
-    </script>
+    <paper-fab id="fabAddProfessor" onclick="page('/form-professor')" icon="add"></paper-fab>
   </template>
 
   <script>
     Polymer({
-      is: "exibir-professores",
+      is: 'exibir-professores',
       ready: function() {
           this.items = [
-            {id:1, professor:"Bruno de Brito"},
-            {id:2, professor:"Adriano Santos"},
-            {id:3, professor:"Hamurábi Medeiros"},
-            {id:4, professor:"Jemerson Damásio"},
-            {id:5, professor:"Isabel Nunes"}
+            {id:1, professor:'Bruno de Brito'},
+            {id:2, professor:'Adriano Santos'},
+            {id:3, professor:'Hamurábi Medeiros'},
+            {id:4, professor:'Jemerson Damásio'},
+            {id:5, professor:'Isabel Nunes'}
           ];
 
           //this.items = getAllEntidades();
