@@ -1,4 +1,5 @@
-# DisponibilidadeProfessores
-Sistema de Registro de Disponibilidade de Professores, desenvolvido em Polymer 1.0.
+## Disponibilidade Professores
+
+> Sistema de registro de disponibilidade de professores, desenvolvido em Polymer 1.0.
 
 Demo: http://buenonp.github.io/DisponibilidadeProfessores/
